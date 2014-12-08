@@ -1,11 +1,47 @@
+<h1> Show Page</h1>
+
 <%= notice %>
 
 
-<%= form_for @product do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<%= f.label :price %>
-<%= f.number_field :price %>
-<% end %>
+<thead>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Price
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+
+    <tr>
+      <td>
+        <%= @product.name %>
+      <td>
+        <%= @product.description %>
+      </td>
+      <td>
+        <%= @product.price %>
+      </td>
+      <td>
+        <%= @product.created_at %>
+      </td>
+      <td>
+        <%= @product.updated_at %>
+      </td>
+
+
+      <td>
+        <%= link_to "Edit", edit_product_path(@product) %>
+      </td>
+      <td>
+        <%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure?"} %>
+      </td>
+
+
+</tbody>
